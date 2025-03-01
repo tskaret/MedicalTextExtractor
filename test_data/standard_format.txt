@@ -1,0 +1,21 @@
+RESEPT
+
+Rekvirent: Dr. Erik Hansen
+Legesenter: Oslo Medisinske Senter
+Telefon: 22 33 44 55
+
+Pasient: Andersen, Marte
+Fødselsdato: 15.04.1985
+
+Legemiddel: Paracetamol 500mg tabletter
+Styrke: 500mg
+Antall: 100 tabletter
+
+Dosering: 1-2 tabletter hver 4-6 time ved behov
+Maksimal døgndose: 8 tabletter (4000mg)
+
+Indikasjon: Mot moderate smerter
+
+Utskrevet dato: 10.03.2023
+Gyldig til: 10.03.2024
+

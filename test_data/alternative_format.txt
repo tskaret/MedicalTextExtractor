@@ -1,0 +1,23 @@
+PASIENTINFORMASJON
+Navn: Olsen, Johan
+ID: 05067812345
+
+BEHANDLING FORSKREVET AV:
+Forskriver: Dr. Maria Johansen
+Avdeling: Kardiologi
+Sykehus: Trondheim Universitetssykehus
+
+MEDIKAMENT:
+Atorvastatin 20mg
+
+ADMINISTRERING:
+En tablett daglig, tas om kvelden
+Skal tas med eller uten mat
+
+TILLEGGSINFORMASJON:
+Kolesterolsenkende medisin
+Mulige bivirkninger: muskelsmerter, tretthet
+Unngå grapefruktjuice under behandling
+
+Foreskrevet: 22.05.2023
+

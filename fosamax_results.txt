@@ -1,0 +1,12 @@
+Raw Results Dictionary:
+{
+  "prescriber": "midler",
+  "medication": null,
+  "administration": "fosamax tabletten skal tas straks pasienten står opp om morgenen, sammen med et fullt glass vann på fastende mage, minst 1/2 time før inntak av annen drikke, mat eller andre legemidler. for å lette transporten til magen, og derved redusere risikoen for lokal og øsofageal irritasjon​/​bivirkning, skal pasienten sitte oppreist eller stå inntil dagens første måltid er inntatt (dvs. minst 1/2 time etter tablettinntak). tabletten skal ikke tas ved sengetid eller før en står opp. tabletten skal svelges hel. skal ikke tygges, knuses eller oppløses i munnen. doctor 10017852, torgny skaret",
+  "original_text": "Fosamax\n\nTabletten skal tas straks pasienten står opp om morgenen, sammen med et fullt glass vann på fastende mage, minst 1/2 time før inntak av annen drikke, mat eller andre legemidler. For å lette transporten til magen, og derved redusere risikoen for lokal og øsofageal irritasjon​/​bivirkning, skal pasienten sitte oppreist eller stå inntil dagens første måltid er inntatt (dvs. minst 1/2 time etter tablettinntak). Tabletten skal ikke tas ved sengetid eller før en står opp. Tabletten skal svelges hel. Skal ikke tygges, knuses eller oppløses i munnen.\n\ndoctor 10017852, Torgny Skaret"
+}
+
+Extracted Information:
+Prescriber: midler
+Medication: None
+Administration: fosamax tabletten skal tas straks pasienten står opp om morgenen, sammen med et fullt glass vann på fastende mage, minst 1/2 time før inntak av annen drikke, mat eller andre legemidler. for å lette transporten til magen, og derved redusere risikoen for lokal og øsofageal irritasjon​/​bivirkning, skal pasienten sitte oppreist eller stå inntil dagens første måltid er inntatt (dvs. minst 1/2 time etter tablettinntak). tabletten skal ikke tas ved sengetid eller før en står opp. tabletten skal svelges hel. skal ikke tygges, knuses eller oppløses i munnen. doctor 10017852, torgny skaret

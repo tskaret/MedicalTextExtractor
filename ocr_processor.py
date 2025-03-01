@@ -5,6 +5,22 @@ import pytesseract
 from PIL import Image
 import logging
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler('ocr_processor.log')
+    ]
+)
+
+# Import the tesseract path configuration
+try:
+    from tesseract_path import *
+except ImportError:
+    pass
+
 class OCRProcessor:
     def __init__(self, tesseract_cmd=None, language='nor'):
         """
@@ -14,6 +30,8 @@ class OCRProcessor:
             tesseract_cmd (str, optional): Path to the Tesseract executable.
             language (str, optional): Language for OCR. Default is Norwegian ('nor').
         """
+        self.logger = logging.getLogger("OCRProcessor")
+        
         # Set path to tesseract executable if provided
         if tesseract_cmd:
             pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
@@ -28,9 +46,10 @@ class OCRProcessor:
                     pytesseract.pytesseract.tesseract_cmd = location
                     break
         
+        # Log the tesseract path being used
+        self.logger.info(f"Using Tesseract path: {pytesseract.pytesseract.tesseract_cmd}")
+        
         self.language = language
-        logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger("OCRProcessor")
     
     def preprocess_image(self, image):
         """
@@ -178,4 +197,3 @@ if __name__ == "__main__":
         print(text)
     else:
         print(f"Sample image {image_path} not found. Please provide an image to test.")
-

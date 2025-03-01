@@ -1,0 +1,22 @@
+### MEDISINSK INFORMASJON ###
+
+*** BEHANDLER ***
+> Navn: Dr. Ingrid Bakke
+> Institusjon: Stavanger Universitetssykehus
+> Spesialitet: Nevrologi
+
+=== PREPARAT ===
+> Medisin: Sumatriptan
+> Form: Nesespray
+> Styrke: 20mg/dose
+
++++ BRUK +++
+> En dose ved migreneanfall
+> Kan gjentas etter 2 timer hvis nødvendig
+> Maksimalt 2 doser per døgn
+> Bruk ikke mer enn 12 doser per måned
+
+/// PASIENTDATA ///
+> Navn: Pettersen, Thomas
+> ID: 12108556789
+
