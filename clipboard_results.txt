@@ -1,0 +1,10 @@
+Extracted Information:
+
+HPR-nr: Not found
+Prescriber: middel:humira
+Medication: humira
+
+Administration Instructions from Database:
+Første dose på 80 mg (to 40 mg injeksjoner på én dag), etterfulgt av 40 mg annenhver uke som starter én uke etter den første dosen.
+
+Timestamp: 2025-03-02 12:53:51
