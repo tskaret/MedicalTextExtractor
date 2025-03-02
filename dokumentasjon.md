@@ -348,6 +348,4 @@ def lookup_medication(medication_name, silent=False):
 
 For spørsmål, tilbakemeldinger eller støtte, vennligst kontakt:
 
-- **E-post**: support@medicaltextextractor.no
-- **Nettsted**: www.medicaltextextractor.no
 - **GitHub**: github.com/tskaret/MedicalTextExtractor
