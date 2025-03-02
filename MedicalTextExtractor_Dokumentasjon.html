@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>dokumentasjon</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#medical-text-extractor---brukerdokumentasjon"
+id="toc-medical-text-extractor---brukerdokumentasjon">Medical Text
+Extractor - Brukerdokumentasjon</a>
+<ul>
+<li><a href="#innholdsfortegnelse"
+id="toc-innholdsfortegnelse">Innholdsfortegnelse</a></li>
+<li><a href="#introduksjon" id="toc-introduksjon">Introduksjon</a>
+<ul>
+<li><a href="#hovedfunksjoner"
+id="toc-hovedfunksjoner">Hovedfunksjoner</a></li>
+</ul></li>
+<li><a href="#installasjonsveiledning"
+id="toc-installasjonsveiledning">Installasjonsveiledning</a>
+<ul>
+<li><a href="#forutsetninger"
+id="toc-forutsetninger">Forutsetninger</a></li>
+<li><a href="#installasjonstrinn"
+id="toc-installasjonstrinn">Installasjonstrinn</a></li>
+</ul></li>
+<li><a href="#komme-i-gang" id="toc-komme-i-gang">Komme i gang</a>
+<ul>
+<li><a href="#starte-applikasjonen" id="toc-starte-applikasjonen">Starte
+applikasjonen</a></li>
+<li><a href="#bruke-applikasjonen" id="toc-bruke-applikasjonen">Bruke
+applikasjonen</a></li>
+</ul></li>
+<li><a href="#funksjonalitet" id="toc-funksjonalitet">Funksjonalitet</a>
+<ul>
+<li><a href="#utklippstavleovervåking"
+id="toc-utklippstavleovervåking">Utklippstavleovervåking</a></li>
+<li><a href="#ocr-behandling"
+id="toc-ocr-behandling">OCR-behandling</a></li>
+<li><a href="#tekstanalyse" id="toc-tekstanalyse">Tekstanalyse</a></li>
+<li><a href="#databaseintegrasjon"
+id="toc-databaseintegrasjon">Databaseintegrasjon</a></li>
+<li><a href="#systemstatusikon"
+id="toc-systemstatusikon">Systemstatusikon</a></li>
+<li><a href="#brukernotifikasjoner"
+id="toc-brukernotifikasjoner">Brukernotifikasjoner</a></li>
+</ul></li>
+<li><a href="#systemkrav" id="toc-systemkrav">Systemkrav</a>
+<ul>
+<li><a href="#maskinvarekrav"
+id="toc-maskinvarekrav">Maskinvarekrav</a></li>
+<li><a href="#programvarekrav"
+id="toc-programvarekrav">Programvarekrav</a></li>
+<li><a href="#avhengigheter"
+id="toc-avhengigheter">Avhengigheter</a></li>
+</ul></li>
+<li><a href="#brukerveiledning"
+id="toc-brukerveiledning">Brukerveiledning</a>
+<ul>
+<li><a href="#overvåking-av-utklippstavlen"
+id="toc-overvåking-av-utklippstavlen">Overvåking av
+utklippstavlen</a></li>
+<li><a href="#behandle-bilder-manuelt"
+id="toc-behandle-bilder-manuelt">Behandle bilder manuelt</a></li>
+<li><a href="#legge-til-nye-medisiner-i-databasen"
+id="toc-legge-til-nye-medisiner-i-databasen">Legge til nye medisiner i
+databasen</a></li>
+<li><a href="#vise-lagrede-medisiner"
+id="toc-vise-lagrede-medisiner">Vise lagrede medisiner</a></li>
+</ul></li>
+<li><a href="#feilsøking" id="toc-feilsøking">Feilsøking</a>
+<ul>
+<li><a href="#vanlige-problemer" id="toc-vanlige-problemer">Vanlige
+problemer</a></li>
+<li><a href="#loggfiler" id="toc-loggfiler">Loggfiler</a></li>
+</ul></li>
+<li><a href="#api-dokumentasjon"
+id="toc-api-dokumentasjon">API-dokumentasjon</a>
+<ul>
+<li><a href="#hovedkomponenter"
+id="toc-hovedkomponenter">Hovedkomponenter</a></li>
+<li><a href="#hjelpefunksjoner"
+id="toc-hjelpefunksjoner">Hjelpefunksjoner</a></li>
+</ul></li>
+<li><a href="#kontaktinformasjon"
+id="toc-kontaktinformasjon">Kontaktinformasjon</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="medical-text-extractor---brukerdokumentasjon">Medical Text
+Extractor - Brukerdokumentasjon</h1>
+<h2 id="innholdsfortegnelse">Innholdsfortegnelse</h2>
+<ol type="1">
+<li><a href="#introduksjon">Introduksjon</a></li>
+<li><a href="#installasjonsveiledning">Installasjonsveiledning</a></li>
+<li><a href="#komme-i-gang">Komme i gang</a></li>
+<li><a href="#funksjonalitet">Funksjonalitet</a></li>
+<li><a href="#systemkrav">Systemkrav</a></li>
+<li><a href="#brukerveiledning">Brukerveiledning</a></li>
+<li><a href="#feilsøking">Feilsøking</a></li>
+<li><a href="#api-dokumentasjon">API-dokumentasjon</a></li>
+<li><a href="#kontaktinformasjon">Kontaktinformasjon</a></li>
+</ol>
+<h2 id="introduksjon">Introduksjon</h2>
+<p>Medical Text Extractor er et verktøy utviklet for å hjelpe
+helsepersonell med å raskt hente ut administrasjonsinstruksjoner for
+medisiner fra bilder. Applikasjonen overvåker utklippstavlen for bilder,
+bruker OCR (Optical Character Recognition) for å trekke ut tekst,
+identifiserer medisinnavn og viser administrasjonsinstruksjoner
+automatisk.</p>
+<h3 id="hovedfunksjoner">Hovedfunksjoner</h3>
+<ul>
+<li><strong>Automatisk overvåking av utklippstavlen</strong>: Oppdager
+automatisk når bilder kopieres til utklippstavlen</li>
+<li><strong>OCR-behandling</strong>: Trekker ut tekst fra bilder ved
+hjelp av Tesseract OCR</li>
+<li><strong>Tekstanalyse</strong>: Identifiserer norske medisinske
+termer som “rekvirent” og “Legemiddel”</li>
+<li><strong>Databaseintegrasjon</strong>: Lagrer og henter
+administrasjonsinstruksjoner for medisiner</li>
+<li><strong>Systemstatusikon</strong>: Gir enkel tilgang til å
+starte/stoppe overvåkingen og avslutte applikasjonen</li>
+<li><strong>Brukernotifikasjoner</strong>: Viser dialogbokser med
+administrasjonsinstruksjoner når medisiner blir identifisert</li>
+</ul>
+<h2 id="installasjonsveiledning">Installasjonsveiledning</h2>
+<h3 id="forutsetninger">Forutsetninger</h3>
+<p>Før du installerer Medical Text Extractor, må du ha følgende
+programvare installert:</p>
+<ol type="1">
+<li><strong>Python 3.9</strong>: Kan lastes ned fra <a
+href="https://www.python.org/downloads/">python.org</a></li>
+<li><strong>Conda</strong>: Anbefalt for å håndtere virtuelle miljøer,
+kan lastes ned fra <a
+href="https://docs.conda.io/en/latest/miniconda.html">conda.io</a></li>
+<li><strong>Tesseract OCR</strong>: Nødvendig for OCR-funksjonalitet,
+kan lastes ned fra <a
+href="https://github.com/UB-Mannheim/tesseract/wiki">UB-Mannheim</a></li>
+</ol>
+<h3 id="installasjonstrinn">Installasjonstrinn</h3>
+<ol type="1">
+<li><p><strong>Klon eller last ned prosjektet</strong>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git clone https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>tskaret<span class="op">/</span>MedicalTextExtractor<span class="op">.</span><span class="fu">git</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> MedicalTextExtractor</span></code></pre></div>
+<p><strong>Merk:</strong> Du vil bli bedt om å oppgi passord for å klone
+repositoriet.</p></li>
+<li><p><strong>Opprett Conda-miljø</strong>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>powershell <span class="op">-</span>ExecutionPolicy Bypass <span class="op">-</span>File setup_conda_env<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div>
+<p>Dette vil opprette et Conda-miljø med navnet
+<code>med_text_env</code> i
+<code>d:\Conda.env\med_text_env</code>.</p></li>
+<li><p><strong>Aktiver Conda-miljøet</strong>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\activate_env<span class="op">.</span><span class="fu">bat</span></span></code></pre></div></li>
+<li><p><strong>Verifiser installasjonen</strong>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>c <span class="st">&quot;import pytesseract; print(&#39;Tesseract er tilgjengelig&#39;)&quot;</span></span></code></pre></div>
+<p>Hvis du ikke ser noen feilmeldinger, er installasjonen
+vellykket.</p></li>
+</ol>
+<h2 id="komme-i-gang">Komme i gang</h2>
+<h3 id="starte-applikasjonen">Starte applikasjonen</h3>
+<p>For å starte Medical Text Extractor med systemstatusikon:</p>
+<ol type="1">
+<li><p>Aktiver Conda-miljøet:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\activate_env<span class="op">.</span><span class="fu">bat</span></span></code></pre></div></li>
+<li><p>Start den forbedrede utklippstavleovervåkingen:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>python start_enhanced_clipboard_service<span class="op">.</span><span class="fu">py</span></span></code></pre></div></li>
+<li><p>Et systemstatusikon vil vises i systemstatusfeltet. Høyreklikk på
+ikonet for å se alternativer:</p>
+<ul>
+<li><strong>Start overvåking</strong>: Starter overvåking av
+utklippstavlen</li>
+<li><strong>Stopp overvåking</strong>: Stopper overvåking av
+utklippstavlen</li>
+<li><strong>Avslutt</strong>: Avslutter applikasjonen</li>
+</ul></li>
+</ol>
+<h3 id="bruke-applikasjonen">Bruke applikasjonen</h3>
+<ol type="1">
+<li><p>Trykk tasten “Prt Scrn” (Print Screen) for å ta bilde av skjermen
+og aktivere programmet. Dersom programmet oppdager legemiddel i bildet
+av Alfa-skjermen, vil det kopiere bruksanvisningen (administreringen).
+Den kan kopieres ut ved å trykke Ctrl+V eller høyre knapp på musen og
+velge “Lim inn” i Alfa.</p></li>
+<li><p>Alternativt kan du kopiere et bilde som inneholder medisinsk
+informasjon til utklippstavlen (f.eks. ved å ta et skjermbilde eller
+kopiere et bilde fra en annen applikasjon)</p></li>
+<li><p>Applikasjonen vil automatisk oppdage bildet, trekke ut tekst og
+analysere den</p></li>
+<li><p>Hvis medisininformasjon blir funnet, vil en dialogboks vise
+administrasjonsinstruksjonene</p></li>
+<li><p>Administrasjonsinstruksjonene blir også kopiert til
+utklippstavlen for enkel liming inn i andre applikasjoner</p></li>
+</ol>
+<h2 id="funksjonalitet">Funksjonalitet</h2>
+<h3 id="utklippstavleovervåking">Utklippstavleovervåking</h3>
+<p>Applikasjonen overvåker kontinuerlig utklippstavlen for nye bilder.
+Når et bilde oppdages, blir det behandlet for å trekke ut medisinsk
+informasjon.</p>
+<h3 id="ocr-behandling">OCR-behandling</h3>
+<p>Optical Character Recognition (OCR) brukes for å trekke ut tekst fra
+bilder. Applikasjonen bruker Tesseract OCR, som er en kraftig OCR-motor
+som støtter flere språk, inkludert norsk.</p>
+<h3 id="tekstanalyse">Tekstanalyse</h3>
+<p>Den ekstraherte teksten analyseres for å identifisere viktig
+medisinsk informasjon, inkludert: - HPR-nummer
+(Helsepersonellregisternummer) - Rekvirent (lege eller annet
+helsepersonell) - Legemiddelnavn</p>
+<h3 id="databaseintegrasjon">Databaseintegrasjon</h3>
+<p>Applikasjonen lagrer og henter administrasjonsinstruksjoner for
+medisiner fra en lokal database. Dette gjør det mulig å raskt hente
+instruksjoner for kjente medisiner.</p>
+<h3 id="systemstatusikon">Systemstatusikon</h3>
+<p>Et systemstatusikon gir enkel tilgang til applikasjonens funksjoner,
+inkludert: - Starte/stoppe overvåking av utklippstavlen - Avslutte
+applikasjonen</p>
+<h3 id="brukernotifikasjoner">Brukernotifikasjoner</h3>
+<p>Applikasjonen viser dialogbokser med administrasjonsinstruksjoner når
+medisiner blir identifisert. Dette gir umiddelbar tilgang til viktig
+informasjon.</p>
+<h2 id="systemkrav">Systemkrav</h2>
+<h3 id="maskinvarekrav">Maskinvarekrav</h3>
+<ul>
+<li><strong>Prosessor</strong>: Minimum 2 GHz dual-core</li>
+<li><strong>Minne</strong>: Minimum 4 GB RAM</li>
+<li><strong>Lagring</strong>: Minimum 500 MB ledig diskplass</li>
+</ul>
+<h3 id="programvarekrav">Programvarekrav</h3>
+<ul>
+<li><strong>Operativsystem</strong>: Windows 10 eller nyere</li>
+<li><strong>Python</strong>: Version 3.9</li>
+<li><strong>Conda</strong>: For håndtering av virtuelle miljøer</li>
+<li><strong>Tesseract OCR</strong>: For OCR-funksjonalitet</li>
+</ul>
+<h3 id="avhengigheter">Avhengigheter</h3>
+<p>Følgende Python-pakker er nødvendige: - opencv-python - for
+bildebehandling - pillow - for bildemanipulering - pyautogui - for
+skjermbildedeteksjon og automatisering - pynput - for
+tastatur-/museovervåking - pyperclip - for utklippstavleoperasjoner -
+pytesseract - Python-wrapper for Tesseract OCR - win10toast - for
+Windows-varsler - pystray - for systemstatusikon - pywin32 - for Windows
+API-tilgang - psutil - for prosessovervåking</p>
+<h2 id="brukerveiledning">Brukerveiledning</h2>
+<h3 id="overvåking-av-utklippstavlen">Overvåking av utklippstavlen</h3>
+<ol type="1">
+<li><strong>Start overvåking</strong>:
+<ul>
+<li>Høyreklikk på systemstatusikonet</li>
+<li>Velg “Start overvåking”</li>
+</ul></li>
+<li><strong>Stopp overvåking</strong>:
+<ul>
+<li>Høyreklikk på systemstatusikonet</li>
+<li>Velg “Stopp overvåking”</li>
+</ul></li>
+</ol>
+<h3 id="behandle-bilder-manuelt">Behandle bilder manuelt</h3>
+<p>Hvis du ønsker å behandle et bilde manuelt:</p>
+<ol type="1">
+<li>Kopier bildet til utklippstavlen</li>
+<li>Vent på at applikasjonen behandler bildet</li>
+<li>En dialogboks vil vise administrasjonsinstruksjonene hvis en medisin
+blir identifisert</li>
+</ol>
+<h3 id="legge-til-nye-medisiner-i-databasen">Legge til nye medisiner i
+databasen</h3>
+<p>For å legge til en ny medisin i databasen:</p>
+<ol type="1">
+<li><p>Aktiver Conda-miljøet:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\activate_env<span class="op">.</span><span class="fu">bat</span></span></code></pre></div></li>
+<li><p>Kjør skriptet for å legge til medisiner:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>python add_medication_improved<span class="op">.</span><span class="fu">py</span></span></code></pre></div></li>
+<li><p>Følg instruksjonene for å legge til medisininformasjon:</p>
+<ul>
+<li>Medisinnavn</li>
+<li>Administrasjonsinstruksjoner</li>
+<li>Andre relevante opplysninger</li>
+</ul></li>
+</ol>
+<h3 id="vise-lagrede-medisiner">Vise lagrede medisiner</h3>
+<p>For å vise alle medisiner i databasen:</p>
+<ol type="1">
+<li><p>Aktiver Conda-miljøet:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\activate_env<span class="op">.</span><span class="fu">bat</span></span></code></pre></div></li>
+<li><p>Kjør skriptet for å vise medisiner:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>python view_medications<span class="op">.</span><span class="fu">py</span></span></code></pre></div></li>
+</ol>
+<h2 id="feilsøking">Feilsøking</h2>
+<h3 id="vanlige-problemer">Vanlige problemer</h3>
+<h4 id="applikasjonen-starter-ikke">Applikasjonen starter ikke</h4>
+<p><strong>Problem</strong>: Applikasjonen starter ikke når du kjører
+<code>start_enhanced_clipboard_service.py</code>.</p>
+<p><strong>Løsning</strong>: 1. Sjekk at Conda-miljøet er aktivert:
+<code>powershell    .\activate_env.bat</code> 2. Sjekk at alle
+nødvendige pakker er installert: <code>powershell    pip list</code> 3.
+Sjekk loggfilen <code>service_starter.log</code> for feilmeldinger:
+<code>powershell    Get-Content -Path service_starter.log -Tail 20</code></p>
+<h4 id="ocr-fungerer-ikke-som-forventet">OCR fungerer ikke som
+forventet</h4>
+<p><strong>Problem</strong>: Applikasjonen oppdager bilder, men trekker
+ikke ut tekst korrekt.</p>
+<p><strong>Løsning</strong>: 1. Sjekk at Tesseract OCR er installert og
+konfigurert korrekt 2. Sjekk at bildet har god kvalitet og er lesbart 3.
+Prøv å behandle bildet manuelt med debug-skriptet:
+<code>powershell    python debug_clipboard_monitor.py</code> 4. Sjekk
+loggfilen <code>clipboard_monitor.log</code> for feilmeldinger:
+<code>powershell    Get-Content -Path clipboard_monitor.log -Tail 20</code></p>
+<h4 id="applikasjonen-finner-ikke-medisiner">Applikasjonen finner ikke
+medisiner</h4>
+<p><strong>Problem</strong>: Applikasjonen trekker ut tekst, men finner
+ikke medisininformasjon.</p>
+<p><strong>Løsning</strong>: 1. Sjekk at teksten inneholder medisinnavn
+i et format som applikasjonen kan gjenkjenne 2. Sjekk at medisinen
+finnes i databasen:
+<code>powershell    python lookup_medication.py [medisinnavn]</code> 3.
+Prøv å legge til medisinen manuelt:
+<code>powershell    python add_medication_improved.py</code></p>
+<h3 id="loggfiler">Loggfiler</h3>
+<p>Applikasjonen genererer flere loggfiler som kan være nyttige for
+feilsøking:</p>
+<ul>
+<li><strong>clipboard_monitor.log</strong>: Loggfil for
+utklippstavleovervåkingen</li>
+<li><strong>service_starter.log</strong>: Loggfil for
+oppstartsprosessen</li>
+<li><strong>extracted_text.txt</strong>: Inneholder tekst som er trukket
+ut fra det siste behandlede bildet</li>
+<li><strong>clipboard_results.txt</strong>: Inneholder resultater fra
+den siste behandlingen</li>
+</ul>
+<h2 id="api-dokumentasjon">API-dokumentasjon</h2>
+<h3 id="hovedkomponenter">Hovedkomponenter</h3>
+<h4 id="enhancedclipboardmonitor">EnhancedClipboardMonitor</h4>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EnhancedClipboardMonitor:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Overvåker utklippstavlen for nye bilder, trekker ut medisininformasjon,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">    viser administrasjonsinstruksjoner og gir et systemstatusikon for brukerkontroll.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Initialiser utklippstavleovervåkeren.&quot;&quot;&quot;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> start(<span class="va">self</span>):</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Start overvåking av utklippstavlen.&quot;&quot;&quot;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> stop(<span class="va">self</span>):</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Stopp overvåking av utklippstavlen.&quot;&quot;&quot;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run(<span class="va">self</span>):</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Kjør den forbedrede utklippstavleovervåkeren med systemstatusikon.&quot;&quot;&quot;</span></span></code></pre></div>
+<h4 id="ocrprocessor">OCRProcessor</h4>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OCRProcessor:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Behandler bilder med OCR for å trekke ut tekst.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Initialiser OCR-prosessoren.&quot;&quot;&quot;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> extract_text(<span class="va">self</span>, image):</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Trekk ut tekst fra et bilde ved hjelp av OCR.&quot;&quot;&quot;</span></span></code></pre></div>
+<h4 id="improvedtextanalyzer">ImprovedTextAnalyzer</h4>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ImprovedTextAnalyzer:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Analyserer tekst for å identifisere medisininformasjon.</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Initialiser tekstanalysatoren.&quot;&quot;&quot;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> analyze_text(<span class="va">self</span>, text):</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Analyser tekst for å identifisere medisininformasjon.&quot;&quot;&quot;</span></span></code></pre></div>
+<h3 id="hjelpefunksjoner">Hjelpefunksjoner</h3>
+<h4 id="lookup_medication">lookup_medication</h4>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lookup_medication(medication_name, silent<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Slå opp en medisin i databasen.</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">        medication_name (str): Navnet på medisinen å slå opp</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">        silent (bool): Hvis True, skriv ikke ut resultater til konsollen</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">        list: Liste over medisiner som matcher søket</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span></code></pre></div>
+<h2 id="kontaktinformasjon">Kontaktinformasjon</h2>
+<p>For spørsmål, tilbakemeldinger eller støtte, vennligst kontakt:</p>
+<ul>
+<li><strong>E-post</strong>: support@medicaltextextractor.no</li>
+<li><strong>Nettsted</strong>: www.medicaltextextractor.no</li>
+<li><strong>GitHub</strong>:
+github.com/tskaret/MedicalTextExtractor</li>
+</ul>
+</body>
+</html>
